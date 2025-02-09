@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Список персонажей</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фракция</th>
+            <th>Броня</th>
+            <th>Оружие</th>
+            <th>Модификация</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for character in characters %}
+        <tr>
+            <td>{{ character['name'] }}</td>
+            <td>{{ character['faction_id'] }}</td>
+            <td>{{ character['armor_id'] }}</td>
+            <td>{{ character['weapon_id'] }}</td>
+            <td>{{ character['modification_id'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

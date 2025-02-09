@@ -1,0 +1,29 @@
+<!-- templates/create_armor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Armor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Create New Armor</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('create_armor') }}">
+        <label for="name">Armor Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="faction_id">Faction ID:</label>
+        <input type="number" id="faction_id" name="faction_id" required><br><br>
+        <label for="health_bonus">Health Bonus:</label>
+        <input type="number" step="0.1" id="health_bonus" name="health_bonus"><br><br>
+        <label for="damage_bonus">Damage Bonus:</label>
+        <input type="number" step="0.1" id="damage_bonus" name="damage_bonus"><br><br>
+        <label for="speed_bonus">Speed Bonus:</label>
+        <input type="number" step="0.1" id="speed_bonus" name="speed_bonus"><br><br>
+        <button type="submit">Create Armor</button>
+    </form>
+</body>
+</html>

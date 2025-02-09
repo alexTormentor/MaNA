@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armor List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Armor List</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if armors %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Faction</th>
+                <th>Health Bonus</th>
+                <th>Damage Bonus</th>
+                <th>Speed Bonus</th>
+            </tr>
+            {% for armor in armors %}
+            <tr>
+                <td>{{ armor.id }}</td>
+                <td>{{ armor.name }}</td>
+                <td>{{ factions_dict.get(armor.faction_id, 'Unknown Faction') }}</td>
+                <td>{{ armor.health_bonus }}</td>
+                <td>{{ armor.damage_bonus }}</td>
+                <td>{{ armor.speed_bonus }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No armors found.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Characters</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>All Characters</h1>
+
+    {% if error_message %}
+        <p style="color:red">{{ error_message }}</p>
+    {% else %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Faction</th>
+                    <th>Armor</th>
+                    <th>Weapon</th>
+                    <th>Modification</th>
+                    <th>Health</th>
+                    <th>Damage</th>
+                    <th>Speed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for character in characters %}
+                    <tr>
+                        <td>{{ character.id }}</td>
+                        <td>{{ character.name }}</td>
+                        <td>{{ factions_dict.get(character.faction_id, 'Unknown Faction') }}</td>
+                        <td>{{ armors_dict.get(character.armor_id, 'Unknown Armor') }}</td>
+                        <td>{{ weapons_dict.get(character.weapon_id, 'Unknown Weapon') }}</td>
+                        <td>{{ modifications_dict.get(character.modification_id, 'Unknown Modification') }}</td>
+                        <td>{{ character.health }}</td>
+                        <td>{{ character.damage }}</td>
+                        <td>{{ character.speed }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

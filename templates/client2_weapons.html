@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Weapon List</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if weapons %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Faction</th>
+                <th>Damage Bonus</th>
+                <th>Speed Bonus</th>
+            </tr>
+            {% for weapon in weapons %}
+            <tr>
+                <td>{{ weapon.id }}</td>
+                <td>{{ weapon.name }}</td>
+                <td>{{ factions_dict.get(weapon.faction_id, 'Unknown Faction') }}</td>
+                <td>{{ weapon.damage_bonus }}</td>
+                <td>{{ weapon.speed_bonus }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No weapons found.</p>
+    {% endif %}
+</body>
+</html>

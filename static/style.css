@@ -1,0 +1,184 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(45deg, #f6f9fc, #e0efff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для центрального содержимого */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+/* Заголовок страницы */
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Стили для обертки ссылок */
+.links-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Стили для ссылок */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 12px 24px;
+    display: inline-block;
+    margin-bottom: 15px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Эффекты при наведении на ссылки */
+a:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
+}
+
+/* Стили для таблиц */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки таблиц */
+th {
+    background-color: #3498db;
+    color: white;
+    padding: 16px;
+    text-align: left;
+    font-size: 1.1em;
+    border-bottom: 2px solid #ddd;
+    text-transform: uppercase;
+}
+
+/* Ячейки таблиц */
+td {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1em;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+/* Чередование фона строк для улучшения читаемости */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #ecf0f1;
+    transform: scale(1.02);
+}
+
+/* Пагинация */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 12px 20px;
+    margin: 0 5px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* Стиль кнопок в формах */
+form button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Карточки для контента */
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Поля ввода */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Фоны сообщений об ошибках */
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

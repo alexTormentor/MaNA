@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Character</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function updateComponents(faction_id) {
+            // Обновляем броню
+            fetch(`/get-armors-by-faction/${faction_id}`)
+                .then(response => response.json())
+                .then(armors => {
+                    const armorSelect = document.getElementById("armor_id");
+                    armorSelect.innerHTML = "";
+                    armors.forEach(armor => {
+                        const option = document.createElement("option");
+                        option.value = armor.id;
+                        option.textContent = armor.name;
+                        armorSelect.appendChild(option);
+                    });
+                });
+
+            // Обновляем оружие
+            fetch(`/get-weapons-by-faction/${faction_id}`)
+                .then(response => response.json())
+                .then(weapons => {
+                    const weaponSelect = document.getElementById("weapon_id");
+                    weaponSelect.innerHTML = "";
+                    weapons.forEach(weapon => {
+                        const option = document.createElement("option");
+                        option.value = weapon.id;
+                        option.textContent = weapon.name;
+                        weaponSelect.appendChild(option);
+                    });
+                });
+
+            // Обновляем модификации
+            fetch(`/get-modifications-by-faction/${faction_id}`)
+                .then(response => response.json())
+                .then(modifications => {
+                    const modificationSelect = document.getElementById("modification_id");
+                    modificationSelect.innerHTML = "";
+                    modifications.forEach(mod => {
+                        const option = document.createElement("option");
+                        option.value = mod.id;
+                        option.textContent = mod.name;
+                        modificationSelect.appendChild(option);
+                    });
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Create Character</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="faction_id">Faction:</label>
+        <select id="faction_id" name="faction_id" onchange="updateComponents(this.value)" required>
+            <option value="">Select Faction</option>
+            {% for faction in factions %}
+                <option value="{{ faction.id }}">{{ faction.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="armor_id">Armor:</label>
+        <select id="armor_id" name="armor_id" required>
+            <option value="">Select Armor</option>
+        </select><br>
+
+        <label for="weapon_id">Weapon:</label>
+        <select id="weapon_id" name="weapon_id" required>
+            <option value="">Select Weapon</option>
+        </select><br>
+
+        <label for="modification_id">Modification:</label>
+        <select id="modification_id" name="modification_id" required>
+            <option value="">Select Modification</option>
+        </select><br>
+
+        <label for="health_bonus">Health Bonus:</label>
+        <input type="number" id="health_bonus" name="health_bonus" value="0"><br>
+
+        <label for="damage_bonus">Damage Bonus:</label>
+        <input type="number" id="damage_bonus" name="damage_bonus" value="0"><br>
+
+        <label for="speed_bonus">Speed Bonus:</label>
+        <input type="number" id="speed_bonus" name="speed_bonus" value="0"><br>
+
+        <button type="submit">Create Character</button>
+    </form>
+
+    {% if error_message %}
+        <p style="color:red">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

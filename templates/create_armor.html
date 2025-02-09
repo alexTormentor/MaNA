@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Создать броню</h2>
+<form action="{{ url_for('create_armor') }}" method="POST">
+    <label for="name">Название:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="faction">Фракция:</label>
+    <input type="text" id="faction" name="faction" required>
+    
+    <label for="health_bonus">Здоровье:</label>
+    <input type="number" id="health_bonus" name="health_bonus" required>
+    
+    <label for="damage_bonus">Урон:</label>
+    <input type="number" id="damage_bonus" name="damage_bonus" required>
+
+    <label for="speed_bonus">Скорость:</label>
+    <input type="number" id="speed_bonus" name="speed_bonus" required>
+
+    
+    <button type="submit">Создать</button>
+</form>
+{% endblock %}

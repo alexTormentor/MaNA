@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Создать персонажа</h2>
+<form action="{{ url_for('create_character') }}" method="POST">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="faction">Фракция:</label>
+    <select id="faction" name="faction" required>
+        {% for faction in factions %}
+        <option value="{{ faction['id'] }}">{{ faction['id'] }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="armor">Броня:</label>
+    <select id="armor" name="armor" required>
+        {% for armor in armors %}
+        <option value="{{ armor['id'] }}">{{ armor['id'] }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="weapon">Оружие:</label>
+    <select id="weapon" name="weapon" required>
+        {% for weapon in weapons %}
+        <option value="{{ weapon['id'] }}">{{ weapon['id'] }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="modification">Модификация:</label>
+    <select id="modification" name="modification" required>
+        {% for modification in modifications %}
+        <option value="{{ modification['id'] }}">{{ modification['id'] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="health">health:</label>
+    <input type="text" id="health" name="health">
+
+    <label for="damage">damage:</label>
+    <input type="text" id="damage" name="damage">
+
+    <label for="speed">speed:</label>
+    <input type="text" id="speed" name="speed">
+    
+    <button type="submit">Создать</button>
+</form>
+{% endblock %}

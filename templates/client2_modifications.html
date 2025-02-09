@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Modification List</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if modifications %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Faction</th>
+                <th>Health Bonus</th>
+                <th>Damage Bonus</th>
+                <th>Speed Bonus</th>
+            </tr>
+            {% for modification in modifications %}
+            <tr>
+                <td>{{ modification.id }}</td>
+                <td>{{ modification.name }}</td>
+                <td>{{ factions_dict.get(modification.faction_id, 'Unknown Faction') }}</td>
+                <td>{{ modification.health_bonus }}</td>
+                <td>{{ modification.damage_bonus }}</td>
+                <td>{{ modification.speed_bonus }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No armors found.</p>
+    {% endif %}
+</body>
+</html>

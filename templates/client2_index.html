@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Game Management Links</h1>
+    <ul>
+        <li><a href="{{ url_for('get_armors') }}">View Armors</a></li>
+        <li><a href="{{ url_for('get_weapons') }}">View Weapons</a></li>
+        <li><a href="{{ url_for('get_modifications') }}">View Modifications</a></li>
+        <li><a href="{{ url_for('create_armor') }}">Create Armor</a></li>
+        <li><a href="{{ url_for('create_weapon') }}">Create Weapon</a></li>
+        <li><a href="{{ url_for('create_modification') }}">Create Modification</a></li>
+        <li><a href="{{ url_for('create_character') }}">Create Character</a></li>
+        <li><a href="{{ url_for('view_characters') }}">View Characters</a></li>
+    </ul>
+</body>
+</html>
