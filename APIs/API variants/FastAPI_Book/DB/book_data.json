@@ -1,0 +1,5 @@
+[
+    {"title": "Book 1", "author": "Author A", "genre": "Fantasy", "setting": "City"},
+    {"title": "Book 2", "author": "Author B", "genre": "Sci-Fi", "setting": "Space"},
+    {"title": "Book 3", "author": "Author A", "genre": "Fantasy", "setting": "Forest"}
+]

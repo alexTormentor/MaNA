@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Book 1",
+        "author": "Author A",
+        "genre": "Fantasy",
+        "setting": "City",
+        "is_rented": false
+    },
+    {
+        "id": 2,
+        "title": "Book 2",
+        "author": "Author B",
+        "genre": "Sci-Fi",
+        "setting": "Space",
+        "is_rented": false
+    },
+    {
+        "id": 3,
+        "title": "Book 3",
+        "author": "Author A",
+        "genre": "Fantasy",
+        "setting": "Forest",
+        "is_rented": true
+    }
+]

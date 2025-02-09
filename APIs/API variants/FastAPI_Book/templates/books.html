@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .filters, .books {
+            margin-bottom: 20px;
+        }
+        .book {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .book-title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library</h1>
+
+    <div class="filters">
+        <h2>Filter Books</h2>
+        <form action="/filter" method="post">
+            <label for="author">Author:</label>
+            <select name="author" id="author">
+                <option value="">All</option>
+                {% for author in authors %}
+                <option value="{{ author }}">{{ author }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="genre">Genre:</label>
+            <select name="genre" id="genre">
+                <option value="">All</option>
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="setting">Setting:</label>
+            <select name="setting" id="setting">
+                <option value="">All</option>
+                {% for setting in settings %}
+                <option value="{{ setting }}">{{ setting }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    <div class="books">
+        <h2>Books</h2>
+        {% if books %}
+        {% for book in books %}
+        <div class="book">
+            <div class="book-title">{{ book.title }}</div>
+            <div>Author: {{ book.author }}</div>
+            <div>Genre: {{ book.genre }}</div>
+            <div>Setting: {{ book.setting }}</div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No books found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
