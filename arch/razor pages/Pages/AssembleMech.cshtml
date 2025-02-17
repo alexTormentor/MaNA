@@ -1,0 +1,54 @@
+@page
+@model AssembleMechModel
+@{
+    ViewData["Title"] = "Assemble Mech";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="platform">Platform:</label>
+        <select id="platform" name="platform" class="form-control">
+            <option value="Strider">Strider</option>
+            <option value="Glider">Glider</option>
+            <option value="Mech">Mech</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="engine">Engine:</label>
+        <select id="engine" name="engine" class="form-control">
+            <option value="Quantum">Quantum</option>
+            <option value="Nuclear">Nuclear</option>
+            <option value="Crystal">Crystal</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="weapon">Weapon:</label>
+        <select id="weapon" name="weapon" class="form-control">
+            <option value="Rockets">Rockets</option>
+            <option value="Machine Guns">Machine Guns</option>
+            <option value="Flamethrowers">Flamethrowers</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="body">Body:</label>
+        <select id="body" name="body" class="form-control">
+            <option value="Titanium">Titanium</option>
+            <option value="Polys Alloy">Polys Alloy</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Assemble</button>
+</form>
+
+@if (Model.AssembledMech != null)
+{
+    <h3>Mech Stats</h3>
+    <p><strong>Platform:</strong> @Model.AssembledMech.Platform</p>
+    <p><strong>Engine:</strong> @Model.AssembledMech.Engine</p>
+    <p><strong>Weapon:</strong> @Model.AssembledMech.Weapon</p>
+    <p><strong>Body:</strong> @Model.AssembledMech.Body</p>
+    <p><strong>Durability:</strong> @Model.AssembledMech.Durability</p>
+    <p><strong>Speed:</strong> @Model.AssembledMech.Speed</p>
+    <p><strong>Combat Power:</strong> @Model.AssembledMech.CombatPower</p>
+}

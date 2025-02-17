@@ -1,0 +1,36 @@
+@page
+@model MechsRazorPages.Pages.LibraryWorkModel
+
+<h1>Library</h1>
+
+<form method="get">
+    <label>Genre:</label>
+    <select asp-for="SelectedGenre" asp-items="new SelectList(Model.Genres)">
+        <option value="">All</option>
+    </select>
+
+    <label>Setting:</label>
+    <select asp-for="SelectedSetting" asp-items="new SelectList(Model.Settings)">
+        <option value="">All</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<h2>Books</h2>
+@if (Model.Books.Any())
+{
+    <ul>
+        @foreach (var book in Model.Books)
+        {
+            <li>
+                <strong>@book.Title</strong> - @book.Author <br />
+                Genre: @book.Genre, Setting: @book.Setting, Rating: @book.Rating, Price: $@book.Price, Release Date: @book.ReleaseDate.ToShortDateString()
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No books found with the selected filters.</p>
+}

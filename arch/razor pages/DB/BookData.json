@@ -1,0 +1,20 @@
+[
+  {
+    "Title": "Cyber Adventure",
+    "Author": "Author A",
+    "Genre": "Action",
+    "Setting": "Cyberpunk",
+    "Rating": 4.5,
+    "Price": 15.99,
+    "ReleaseDate": "2023-06-01"
+  },
+  {
+    "Title": "Romantic Journey",
+    "Author": "Author B",
+    "Genre": "Romance",
+    "Setting": "Everyday",
+    "Rating": 3.8,
+    "Price": 10.99,
+    "ReleaseDate": "2022-02-14"
+  }
+]
